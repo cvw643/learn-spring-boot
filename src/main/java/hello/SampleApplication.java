@@ -1,21 +1,25 @@
 package hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
+@SpringBootApplication
 @Controller
-@EnableAutoConfiguration
-public class SampleController {
+public class SampleApplication {
 
-    @RequestMapping("/")
+    @Autowired
+    private SampleProperties sampleProperties;
+
+    @GetMapping("/")
     @ResponseBody
     String home() {
-        return "Hello World!";
+        return sampleProperties.getGreeting();
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
+        SpringApplication.run(SampleApplication.class, args);
     }
 }
