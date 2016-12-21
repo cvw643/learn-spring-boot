@@ -1,28 +1,28 @@
 buildscript {
-    ext {
-        springBootVersion = '1.4.0.RELEASE'
-    }
     repositories {
         mavenLocal()
         jcenter()
-        mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
     }
 }
 
-group 'com.github.happy-learning'
+group 'com.github.cvw643'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'spring-boot'
+subprojects {
 
-repositories {
-    mavenCentral()
-}
+    apply plugin: 'spring-boot'
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
 
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter-web")
+        compile("org.springframework.boot:spring-boot-actuator")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
 }

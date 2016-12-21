@@ -1,0 +1,7 @@
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  cache:
+    type: redis
+    cache-names: demo

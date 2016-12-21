@@ -1,2 +1,4 @@
 rootProject.name = 'learn-spring-boot'
+include 'cache'
+include 'mvc'
 
